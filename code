@@ -7,6 +7,7 @@ define('DISALLOW_FILE_EDIT', true);
 
 Disable Emoji
 Emoji are loaded on every page of your website. It’s actually loaded by a javascript file ( wp-emoji-release.min.js). You can remove Emoji with the following code. Should be added in functions.php
+```
 add_action('init', 'disable_emojis');
 
 function disable_emojis() {
@@ -35,6 +36,7 @@ function disable_emojis() {
      }
      return $urls;
  }
+ ```
 Remove Query Strings
 Query strings such as ? or & are added by WordPress to every CSS and js files for versioning (?ver=5.0.2). You may get a warning about removing this while you do a speed test. Remove the query strings with the following code.
 add_action('init', 'remove_query_strings');
