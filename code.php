@@ -1,11 +1,11 @@
-Disable File Editing
+#Disable File Editing
   
 There are two editing options provided by WordPress for Themes and Plugins. Once your site is live you need to disable the file editing method.
 
 Paste the following code in your wp-config.php file.
 define('DISALLOW_FILE_EDIT', true);
 
-Disable Emoji
+#Disable Emoji
 Emoji are loaded on every page of your website. It’s actually loaded by a javascript file ( wp-emoji-release.min.js). You can remove Emoji with the following code. Should be added in functions.php
 add_action('init', 'disable_emojis');
 
@@ -51,7 +51,7 @@ function remove_query_strings() {
      return $output[0];
  }
 
-WP REST API
+#WP REST API
 If you want to disable the WP REST API then add this. Keep in mind that this feature can’t be disabled completely because many plugins like Yoast SEO and Gutenberg Editor use REST API so we can only restrict it to logged-in Users only…
 
 
@@ -69,8 +69,8 @@ add_filter( 'rest_authentication_errors', function( $result ) {
 
 
 
-5.Disable XML-RPC
-XML-RPC is used for remote connections. For better security, you can remove this from your WordPress.
+#Disable XML-RPC
+#XML-RPC is used for remote connections. For better security, you can remove this from your WordPress.
 add_filter('xmlrpc_enabled', '__return_false');
 add_filter('wp_headers', 'remove_x_pingback');
 add_filter('pings_open', '__return_false', 9999);
@@ -80,8 +80,8 @@ function remove_x_pingback($headers) {
      return $headers;
 }
 
-6. Remove jQuery Migrate
-Most latest WordPress themes and plugins won’t use jQuery migrate. In most cases, it’s an unnecessary load to your website.
+#Remove jQuery Migrate
+#Most latest WordPress themes and plugins won’t use jQuery migrate. In most cases, it’s an unnecessary load to your website#
 
 add_filter('wp_default_scripts', 'remove_jquery_migrate');
 
